@@ -1,0 +1,14 @@
+[SddmGreeterTheme]
+Name=Terminal Stalker  Red
+Description=Minimal black terminal theme with red ASCII art Sonnenrad Logo.
+Author=Splicer Scorn
+Copyright=(c) 2025
+License=CC-BY-SA
+Type=sddm-theme
+Version=1.0
+Website=https://voidrane.nekoweb.org
+MainScript=Main.qml
+ConfigFile=theme.conf
+Screenshot=preview.png
+Theme-Id=stalker-red
+Theme-API=2.0

@@ -198,7 +198,7 @@ Rectangle {
                 Text {
                     id: sessionCycleLabel
                     anchors.centerIn: parent
-                    text: "[SESSION: " + session.currentText + "]"
+                    text: "[SESSION: " + (session.index >= 0 && session.index < sessionModel.count ? sessionModel.data(sessionModel.index(session.index, 0), 257) : "NONE") + "]"
                     color: sessionCycleArea.containsMouse ? "#CCCCCC" : "#666666"
                     font.family: "Monospace"
                     font.pixelSize: 11
@@ -208,7 +208,9 @@ Rectangle {
                     anchors.fill: parent
                     hoverEnabled: true
                     onClicked: {
-                        session.index = (session.index + 1) % sessionModel.count
+                        if (sessionModel.count > 0) {
+                            session.index = (session.index + 1) % sessionModel.count
+                        }
                     }
                 }
             }
@@ -274,7 +276,7 @@ Rectangle {
         id: session
         visible: false
         model: sessionModel
-        index: sessionModel.lastIndex
+        index: sessionModel.lastIndex >= 0 ? sessionModel.lastIndex : 0
     }
 
     Component.onCompleted: username.forceActiveFocus()
